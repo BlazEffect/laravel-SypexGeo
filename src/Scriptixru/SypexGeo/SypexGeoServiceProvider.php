@@ -31,8 +31,7 @@ class SypexGeoServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		// Register providers.
-		$this->app['sypexgeo'] = $this->app->share(function($app)
-		{
+		$this->app->singleton('sypexgeo', function($app) {
             $sypexConfig = $app['config'];
             $sypexConfigType = $sypexConfig->get('sypexgeo.sypexgeo.type', array());
             $sypexConfigPath = $sypexConfig->get('sypexgeo.sypexgeo.path', array());
