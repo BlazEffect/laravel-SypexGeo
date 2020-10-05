@@ -1,5 +1,6 @@
-<?php namespace Scriptixru\SypexGeo;
+<?php
 
+namespace Scriptixru\SypexGeo;
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -81,15 +82,16 @@ class Sypexgeo
      *   ]
      *  ```
      */
-    public function __construct($object, Repository $config){
-            $this->config  = $config;
-            $this->_sypex = $object;
-        }
-
-
-
-    public function get($ip='')
+    public function __construct($object, Repository $config)
     {
+        $this->config  = $config;
+        $this->_sypex = $object;
+    }
+
+    public function __call($name, $arguments)
+    {
+        $ip = $arguments[0] ?? null;
+
         if (empty($ip))
             $this->getIP();
         else if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
@@ -99,31 +101,36 @@ class Sypexgeo
             $this->ipAsLong = sprintf('%u', ip2long($ip));
         }
 
-        $data = $this->_sypex->getCityFull($this->ip, $this->config);
+        if (method_exists($this->_sypex, $name)) {
+            $data = $this->_sypex->$name(...$arguments);
+        } else {
+            throw new \Exception("Вызван несуществующий метод: $name");
+        }
+
         if (isset($data['city']))
             $this->city = $data['city'];
         if (isset($data['region']))
             $this->region = $data['region'];
         if (isset($data['country']))
             $this->country = $data['country'];
+
         return empty($data) ? $this->config->get('sypexgeo.default_location', array()) : $data;
     }
-
     /**
      * Detect client IP address
      * @return string IP
      */
     public function getIP()
     {
-        if(getenv('HTTP_CLIENT_IP'))
+        if (getenv('HTTP_CLIENT_IP'))
             $ip = getenv('HTTP_CLIENT_IP');
-        elseif(getenv('HTTP_X_FORWARDED_FOR'))
+        elseif (getenv('HTTP_X_FORWARDED_FOR'))
             $ip = getenv('HTTP_X_FORWARDED_FOR');
-        elseif(getenv('HTTP_X_FORWARDED'))
+        elseif (getenv('HTTP_X_FORWARDED'))
             $ip = getenv('HTTP_X_FORWARDED');
-        elseif(getenv('HTTP_FORWARDED_FOR'))
+        elseif (getenv('HTTP_FORWARDED_FOR'))
             $ip = getenv('HTTP_FORWARDED_FOR');
-        elseif(getenv('HTTP_FORWARDED'))
+        elseif (getenv('HTTP_FORWARDED'))
             $ip = getenv('HTTP_FORWARDED');
         else
             $ip = getenv('REMOTE_ADDR');
@@ -132,6 +139,4 @@ class Sypexgeo
         $this->ipAsLong = sprintf('%u', ip2long($ip));
         return $ip;
     }
-
 }
-
