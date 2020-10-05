@@ -9,11 +9,13 @@ The data comes from a database and from service http://sypexgeo.net
 
 - [SypexGeo for Laravel 5 on Packagist](https://packagist.org/packages/scriptixru/sypexgeo)
 - [SypexGeo for Laravel 5 on GitHub](https://github.com/scriptixru/sypexgeo)
+- [SypexGeo for Laravel 7 on GitHub](https://github.com/default-089/sxgeo)
+- [SypexGeo for Laravel 7 on Packagist](https://packagist.org/packages/default-089/sxgeo)
 
 To get the latest version of SypexGeo simply require it in your `composer.json` file.
 
 ~~~
-"scriptixru/sypexgeo": "0.2.*@dev"
+"default-089/sxgeo": "0.3.*@dev"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
