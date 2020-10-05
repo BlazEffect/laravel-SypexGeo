@@ -1,4 +1,4 @@
-# GeoIP for Laravel 5
+# GeoIP for Laravel 7
 
 ----------
 
