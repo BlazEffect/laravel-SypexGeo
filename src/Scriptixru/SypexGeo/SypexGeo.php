@@ -84,21 +84,19 @@ class Sypexgeo
      */
     public function __construct($object, Repository $config)
     {
-        $this->config  = $config;
+        // $this->config  = $config;
         $this->_sypex = $object;
     }
 
     public function __call($name, $arguments)
     {
-        $ip = $arguments[0] ?? null;
-
-        if (empty($ip))
-            $this->getIP();
-        else if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        if (empty($arguments[0]))
+            $arguments[0] = $this->getIP();
+        else if (!filter_var($arguments[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             return false;
         } else {
-            $this->ip = $ip;
-            $this->ipAsLong = sprintf('%u', ip2long($ip));
+            $this->ip = $arguments[0];
+            $this->ipAsLong = sprintf('%u', ip2long($arguments[0]));
         }
 
         if (method_exists($this->_sypex, $name)) {
@@ -114,7 +112,8 @@ class Sypexgeo
         if (isset($data['country']))
             $this->country = $data['country'];
 
-        return empty($data) ? $this->config->get('sypexgeo.default_location', array()) : $data;
+        // return empty($data) ? $this->config->get('sxgeo.default_location', array()) : $data;
+        return empty($data) ? null : $data;
     }
     /**
      * Detect client IP address

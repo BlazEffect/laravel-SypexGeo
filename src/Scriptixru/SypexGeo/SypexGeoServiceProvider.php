@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class SypexGeoServiceProvider extends ServiceProvider
 {
-
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -25,7 +24,6 @@ class SypexGeoServiceProvider extends ServiceProvider
 			__DIR__ . '/../../config/sxgeo.php' => config_path('sxgeo.php'),
 		]);
 	}
-
 	/**
 	 * Register the service provider.
 	 *
@@ -51,14 +49,9 @@ class SypexGeoServiceProvider extends ServiceProvider
 					$sxgeo = new SxGeoHttp($license_key);
 					break;
 			}
-
-			//return new GeoIP($app['config'], $app["session.store"]);
-
-
 			return new SypexGeo($sxgeo, $app['config']);
 		});
 	}
-
 	/**
 	 * Get the services provided by the provider.
 	 *
