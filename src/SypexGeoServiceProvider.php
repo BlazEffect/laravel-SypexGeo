@@ -22,7 +22,7 @@ class SypexGeoServiceProvider extends ServiceProvider
 	{
 		$this->publishes([
 			__DIR__ . '/../config/sxgeo.php' => config_path('sxgeo.php'),
-		]);
+		], 'sxgeo-config');
 	}
 	/**
 	 * Register the service provider.

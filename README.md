@@ -15,7 +15,7 @@ The data comes from a database and from service http://sypexgeo.net
 To get the latest version of SypexGeo simply require it in your `composer.json` file.
 
 ~~~
-"default-089/sxgeo": "0.11.*@dev"
+"default-089/sxgeo": "0.12.*@dev"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
@@ -27,7 +27,7 @@ The package will automatically register a service provider.
 Run this on the command line from the root of your project:
 
 ~~~
-$ php artisan vendor:publish
+$ php artisan vendor:publish --tag=sxgeo-config
 ~~~
 
 A configuration file will be publish to `config/sxgeo.php`

@@ -70,4 +70,7 @@ return [
         ],
     ],
 
+
+    'default_country' => 'RU',
+
 ];
