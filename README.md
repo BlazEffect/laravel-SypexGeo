@@ -15,30 +15,12 @@ The data comes from a database and from service http://sypexgeo.net
 To get the latest version of SypexGeo simply require it in your `composer.json` file.
 
 ~~~
-"default-089/sxgeo": "0.3.*@dev"
+"default-089/sxgeo": "0.7.*@dev"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
 
-Once GeoIP is installed you need to register the service provider with the application. Open up `config/app.php` and find the `providers` key.
-
-~~~php
-'providers' => array(
-
-    'Scriptixru\SypexGeo\SypexGeoServiceProvider',
-
-)
-~~~
-
-GeoIP also ships with a facade which provides the static syntax for creating collections. You can register the facade in the `aliases` key of your `config/app.php` file.
-
-~~~php
-'aliases' => array(
-
-    'SypexGeo' => 'Scriptixru\SypexGeo\SypexGeoFacade',
-
-)
-~~~
+The package will automatically register a service provider.
 
 ### Publish the configurations
 
