@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-          "Scriptixru\\SypexGeo\\": "src/Scriptixru/SypexGeo"
+          "Scriptixru\\SypexGeo\\": "src"
         }
     },
     "extra": {
