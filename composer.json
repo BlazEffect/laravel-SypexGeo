@@ -1,12 +1,8 @@
 {
     "name": "default-089/sxgeo",
     "description": "Supports GeoIP services (sypexgeo.net).",
-    "keywords": ["laravel", "laravel 5", "laravel 7", "geoip", "location", "geolocation"],
+    "keywords": ["laravel", "laravel 7", "geoip", "location", "geolocation"],
     "authors": [
-        {
-            "name": "Varchak Valery",
-            "email": "scriptixru@gmail.com"
-        },
         {
             "name": "Dmitrakovich Andrey",
             "email": "dmitrievich.a.d@gmail.com"
@@ -26,11 +22,11 @@
                 "Scriptixru\\SypexGeo\\SypexGeoServiceProvider"
             ],
             "aliases": {
-                "SypexGeo": "Scriptixru\\SypexGeo\\SypexGeoFacade"
+                "SxGeo": "Scriptixru\\SypexGeo\\SypexGeoFacade"
             }
         },
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     },
     "minimum-stability": "dev"

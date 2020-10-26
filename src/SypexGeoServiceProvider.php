@@ -21,7 +21,7 @@ class SypexGeoServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		$this->publishes([
-			__DIR__ . '/../../config/sxgeo.php' => config_path('sxgeo.php'),
+			__DIR__ . '/../config/sxgeo.php' => config_path('sxgeo.php'),
 		]);
 	}
 	/**

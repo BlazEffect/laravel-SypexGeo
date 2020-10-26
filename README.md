@@ -15,7 +15,7 @@ The data comes from a database and from service http://sypexgeo.net
 To get the latest version of SypexGeo simply require it in your `composer.json` file.
 
 ~~~
-"default-089/sxgeo": "0.7.*@dev"
+"default-089/sxgeo": "0.11.*@dev"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
@@ -30,7 +30,7 @@ Run this on the command line from the root of your project:
 $ php artisan vendor:publish
 ~~~
 
-A configuration file will be publish to `config/sypexgeo.php`
+A configuration file will be publish to `config/sxgeo.php`
 
 
 ## Usage
