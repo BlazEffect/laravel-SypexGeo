@@ -11,8 +11,8 @@ class SypexGeoFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
-        return 'sxgeo';
+        return SxGeo::class;
     }
 }
