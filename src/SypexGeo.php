@@ -2,14 +2,9 @@
 
 namespace Scriptixru\SypexGeo;
 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
 use Illuminate\Config\Repository;
-use Illuminate\Session\Store as SessionStore;
-use PhpParser\Node\Expr\Cast\Object_;
 
-class Sypexgeo
+class SypexGeo
 {
     /**
      * @var \SxGeo instance.
