@@ -33,6 +33,7 @@ class SxGeo
 	protected $db;
 	protected $regions_db;
 	protected $cities_db;
+	protected $default_iso_country_code;
 
 	public $id2iso = array(
 		'', 'AP', 'EU', 'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'CW', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU',
@@ -262,7 +263,10 @@ class SxGeo
 		}
 		return $unpacked;
 	}
-
+    public function setDefaultIsoCountryCode($code)
+    {
+        $this->default_iso_country_code = $code;
+    }
 	public function get($ip)
 	{
 		return $this->max_city ? $this->getCity($ip) : $this->getCountry($ip);
@@ -272,7 +276,13 @@ class SxGeo
 		if ($this->max_city) {
 			$tmp = $this->parseCity($this->get_num($ip));
 			return $tmp['country']['iso'];
-		} else return $this->id2iso[$this->get_num($ip)];
+		} else {
+            if ($country_code = $this->id2iso[$this->get_num($ip)]) {
+                return $country_code;
+            } else {
+                return $this->default_iso_country_code;
+            }
+        }
 	}
 	public function getCountryId($ip)
 	{

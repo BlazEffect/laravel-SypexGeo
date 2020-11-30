@@ -36,14 +36,16 @@ class SypexGeoServiceProvider extends ServiceProvider
 			$sypexConfig = $app['config'];
 			$sypexConfigType = $sypexConfig->get('sxgeo.sxgeo.type', []);
 			$sypexConfigPath = $sypexConfig->get('sxgeo.sxgeo.path', []);
+            $defaultIsoCountryCode = $sypexConfig->get('sxgeo.default_iso_country_code', []);
 
 			switch ($sypexConfigType) {
 				case 'database':
 				default:
 					$sypexConfigFile = $sypexConfig->get('sxgeo.sxgeo.file', []);
-					$sxgeo = new SxGeo(base_path() . $sypexConfigPath . $sypexConfigFile);
+                    $sxgeo = new SxGeo(base_path() . $sypexConfigPath . $sypexConfigFile);
+                    $sxgeo->setDefaultIsoCountryCode($defaultIsoCountryCode);
 					break;
-					
+
 				case 'web_service':
 					$license_key = $sypexConfig->get('sxgeo.sxgeo.license_key', []);
 					$sxgeo = new SxGeoHttp($license_key);
