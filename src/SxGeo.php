@@ -34,6 +34,7 @@ class SxGeo
 	protected $regions_db;
 	protected $cities_db;
 	protected $default_iso_country_code;
+	protected array $ignored_ip = [];
 
 	public $id2iso = array(
 		'', 'AP', 'EU', 'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'CW', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU',

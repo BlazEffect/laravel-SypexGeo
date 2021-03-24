@@ -15,7 +15,7 @@ The data comes from a database and from service http://sypexgeo.net
 To get the latest version of SypexGeo simply require it in your `composer.json` file.
 
 ~~~
-"default-089/sxgeo": "0.14.*@dev"
+"default-089/sxgeo": "0.15.*@dev"
 ~~~
 
 You'll then need to run `composer install` to download it and have the autoloader updated.
