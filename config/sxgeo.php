@@ -72,5 +72,9 @@ return [
 
 
     'default_country' => 'RU',
+    'default_iso_country_code' => 'RU',
 
+    'ignored_ip' => [
+        '127.0.0.1',
+    ],
 ];

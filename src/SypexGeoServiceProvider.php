@@ -44,6 +44,7 @@ class SypexGeoServiceProvider extends ServiceProvider
 					$sypexConfigFile = $sypexConfig->get('sxgeo.sxgeo.file', []);
                     $sxgeo = new SxGeo(base_path() . $sypexConfigPath . $sypexConfigFile);
                     $sxgeo->setDefaultIsoCountryCode($defaultIsoCountryCode);
+                    $sxgeo->setIgnoredIp($sypexConfig->get('sxgeo.ignored_ip', []));
 					break;
 
 				case 'web_service':

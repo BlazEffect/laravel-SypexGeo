@@ -267,6 +267,10 @@ class SxGeo
     {
         $this->default_iso_country_code = $code;
     }
+	public function setIgnoredIp($ip_list)
+    {
+        $this->ignored_ip = $ip_list;
+    }
 	public function get($ip)
 	{
 		return $this->max_city ? $this->getCity($ip) : $this->getCountry($ip);
@@ -277,7 +281,7 @@ class SxGeo
 			$tmp = $this->parseCity($this->get_num($ip));
 			return $tmp['country']['iso'];
 		} else {
-            if ($country_code = $this->id2iso[$this->get_num($ip)]) {
+            if (!in_array($ip, $this->ignored_ip) && ($country_code = $this->id2iso[$this->get_num($ip)])) {
                 return $country_code;
             } else {
                 return $this->default_iso_country_code;

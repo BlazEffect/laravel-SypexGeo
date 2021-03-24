@@ -85,9 +85,9 @@ class SypexGeo
 
     public function __call($name, $arguments)
     {
-        if (empty($arguments[0]))
+        if (empty($arguments[0])) {
             $arguments[0] = $this->getIP();
-        else if (!filter_var($arguments[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        } else if (!filter_var($arguments[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             return false;
         } else {
             $this->ip = $arguments[0];
