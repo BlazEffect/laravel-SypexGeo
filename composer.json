@@ -1,7 +1,13 @@
 {
-    "name": "default-089/sxgeo",
+    "version": "0.2.0",
+    "name": "dmitrakovich/sxgeo",
     "description": "Supports GeoIP services (sypexgeo.net).",
-    "keywords": ["laravel", "laravel 7", "geoip", "location", "geolocation"],
+    "keywords": [
+        "laravel",
+        "geoip",
+        "location",
+        "geolocation"
+    ],
     "authors": [
         {
             "name": "Dmitrakovich Andrey",
@@ -13,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-          "Scriptixru\\SypexGeo\\": "src"
+            "Scriptixru\\SypexGeo\\": "src"
         }
     },
     "extra": {
@@ -24,10 +30,6 @@
             "aliases": {
                 "SxGeo": "Scriptixru\\SypexGeo\\SypexGeoFacade"
             }
-        },
-        "branch-alias": {
-            "dev-master": "0.16-dev"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

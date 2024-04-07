@@ -4,6 +4,9 @@ namespace Scriptixru\SypexGeo;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @method static string getCountry(...$arguments) get iso country code by ip
+ */
 class SypexGeoFacade extends Facade
 {
     /**
