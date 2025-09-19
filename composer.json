@@ -1,6 +1,6 @@
 {
-    "version": "0.2.0",
-    "name": "dmitrakovich/sxgeo",
+    "version": "1.0.0",
+    "name": "blazeffect/laravel-sypexgeo",
     "description": "Supports GeoIP services (sypexgeo.net).",
     "keywords": [
         "laravel",
@@ -10,12 +10,12 @@
     ],
     "authors": [
         {
-            "name": "Dmitrakovich Andrey",
-            "email": "dmitrievich.a.d@gmail.com"
+            "name": "Kamalin Igor",
+            "email": "kamalinigor@gmail.com"
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=8.1"
     },
     "autoload": {
         "psr-4": {
